@@ -5,13 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Odin Form</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <p>This is not a real online service! You know you need something like this in your
-           life to help you realize your deepest dreams. Sign up <em>now</em> to get started.
-           You <em>know</em> you want to.
-        </p>
-    </header>
+    <div class="container">
+        <div class="left-side-container">
+            <div>
+                <img src="./img/logoipsum.svg" alt="logo ipsum">
+            </div>
+            <footer>
+                Photo by <a href="https://unsplash.com/@jeremythomasphoto?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Jeremy Thomas</a> on <a href="https://unsplash.com/photos/flat-lay-photography-of-purple-and-red-leaves-O6N9RV2rzX8?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+            </footer>
+        </div>
+        
+        <div class="right-side-container">
+            <header>
+                <p>This is not a real online service! You know you need something like this in your
+                life to help you realize your deepest dreams. Sign up <em>now</em> to get started.
+                </p>
+                <p>You <em>know</em> you want to.</p>
+            </header>
+            <main>
+                <form action="#" method="post">
+                    <fieldset>
+                        <legend>Let's do this!</legend>
+                        <label for="first-name">First Name</label>
+                        <input type="text" id="first-name" name="first-name" placeholder="First name">
+                        <label for="last-name">Last Name</label>
+                        <input type="text" id="last-name" name="last-name" placeholder="Last name">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="example@website.com">
+                        <label for="tel">Phone Number</label>
+                        <input type="tel" id="tel" name="tel" placeholder="###-###-####">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password">
+                        <label for="password">Confirm Password</label>
+                        <input type="password" id="confirm-pw" name="confirm-pw">
+                    </fieldset>
+                    <button type="submit">Create Account</button>
+                </form>
+                <p>Already have an account? <a href="#">Log in</a></p>
+            </main>
+        </div>
+    </div>
 </body>
 </html>
