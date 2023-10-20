@@ -52,11 +52,12 @@ form legend {
 }
 
 main, header {
-	background-color: #FFFFED;
+	color: white;
 	width: 100%;
 }
 
 form {
+	color: black;
 	background-color: white;
 	display: flex;
 	width: 100%;
@@ -105,12 +106,23 @@ input {
 	display: flex;
 	width: 60vw;
 	flex-direction: column;
-	background-color: #FFFFED;
+	color: white;
+	background: rgba(0, 0, 0, 0.4);
 }
 
+.right-side-container footer {
+	text-align: center;
+	margin-bottom: 2vh;
+	margin-top: auto;
+	color: white;
+}
 main p:last-of-type {
 	padding: var(--right-container-padding);
 	margin-top: auto;
+}
+
+main p:last-of-type a {
+	color: white;
 }
 
 button {
@@ -130,7 +142,7 @@ button {
 	font-weight: 700;
 	text-align: center;
 	padding: 17px 48px;
-	color: #fff;
+	color: black;
 	background-color: orange;
 	height: 48px;
 	margin-top: 2vh;
