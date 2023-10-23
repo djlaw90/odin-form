@@ -136,7 +136,7 @@ button {
 	border: 1px solid transparent;
 	letter-spacing: 2px;
 	min-width: 160px;
-	width: 40%;
+	max-width: 300px;
 	text-transform: uppercase;
 	white-space: normal;
 	font-weight: 700;

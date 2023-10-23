@@ -35,30 +35,30 @@
                             <div class="form-inputs-container">
                                 <div class="form-column">
                                     <div class="form-input-group">
-                                        <label for="first-name">First Name</label>
-                                        <input type="text" id="first-name" name="first-name" placeholder="First name">
+                                        <label for="first-name">First Name*</label>
+                                        <input type="text" id="first-name" name="first-name" placeholder="First name" required minlength="2" maxlength="45">
                                     </div>
                                     <div class="form-input-group">
-                                        <label for="email">Email</label>
-                                        <input type="email" id="email" name="email" placeholder="example@website.com">
+                                        <label for="email">Email*</label>
+                                        <input type="email" id="email" name="email" placeholder="example@website.com" required>
                                     </div>
                                     <div class="form-input-group">
-                                        <label for="password">Password</label>
-                                        <input type="password" id="password" name="password">
+                                        <label for="password">Password*</label>
+                                        <input type="password" id="password" name="password" onChange="onChange()" required>
                                     </div>
                                 </div>
                                 <div class="form-column">
                                     <div class="form-input-group">
                                         <label for="tel">Phone Number</label>
-                                        <input type="tel" id="tel" name="tel" placeholder="###-###-####">
+                                        <input type="tel" id="tel" name="tel" placeholder="###-###-####" onKeyup='addDashes(this)'>
                                     </div>
                                     <div class="form-input-group">
-                                        <label for="last-name">Last Name</label>
-                                        <input type="text" id="last-name" name="last-name" placeholder="Last name">
+                                        <label for="last-name">Last Name*</label>
+                                        <input type="text" id="last-name" name="last-name" placeholder="Last name" required minlength="2" maxlength="45">
                                     </div>
                                     <div class="form-input-group">
-                                        <label for="password">Confirm Password</label>
-                                        <input type="password" id="confirm-pw" name="confirm-pw">
+                                        <label for="password">Confirm Password*</label>
+                                        <input type="password" id="confirm-pw" name="confirm" onChange="onChange()" required>
                                     </div>
                                 </div>
                             </div>
@@ -73,5 +73,33 @@
             </footer>
         </div>
     </div>
+    <script>
+        window.addDashes = function addDashes(f) {
+            const r = /(\D+)/g,
+                npa = '',
+                nxx = '',
+                last4 = '';
+            f.value = f.value.replace(r, '');
+            npa = f.value.substr(0, 3);
+            nxx = f.value.substr(3, 3);
+            last4 = f.value.substr(6, 4);
+            f.value = npa + '-' + nxx + '-' + last4;
+        }
+        function onChange() {
+            const password = document.querySelector('input[name=password]');
+            const confirm = document.querySelector('input[name=confirm]');
+            if (confirm.value === password.value) {
+                confirm.setCustomValidity('');
+                password.style.border = "2px solid green";
+                confirm.style.border = "2px solid green";
+            } else {
+                confirm.setCustomValidity('Passwords do not match');
+                password.style.border = "2px solid red";
+                confirm.style.border = "2px solid red";
+            }
+        }
+
+
+    </script>
 </body>
 </html>
