@@ -50,7 +50,7 @@
                                 <div class="form-column">
                                     <div class="form-input-group">
                                         <label for="tel">Phone Number</label>
-                                        <input type="tel" id="tel" name="tel" placeholder="###-###-####" onKeyup='addDashes(this)'>
+                                        <input type="tel" id="tel" name="tel" placeholder="###-###-####">
                                     </div>
                                     <div class="form-input-group">
                                         <label for="last-name">Last Name*</label>
@@ -74,17 +74,23 @@
         </div>
     </div>
     <script>
-        window.addDashes = function addDashes(f) {
-            const r = /(\D+)/g,
-                npa = '',
-                nxx = '',
-                last4 = '';
-            f.value = f.value.replace(r, '');
-            npa = f.value.substr(0, 3);
-            nxx = f.value.substr(3, 3);
-            last4 = f.value.substr(6, 4);
-            f.value = npa + '-' + nxx + '-' + last4;
-        }
+            const phoneNumberInput = document.getElementById('tel');
+
+            phoneNumberInput.addEventListener('input', function () {
+                // Remove all non-digit characters (e.g., spaces, dashes, dots)
+                const cleanedPhoneNumber = phoneNumberInput.value.replace(/\D/g, '');
+                // Check if the cleaned phone number is either 10 digits in a row or in the pattern 333-333-4444
+                if (cleanedPhoneNumber.length === 10 || cleanedPhoneNumber.match(/^\d{3}[\s.-]?\d{3}[\s.-]?\d{4}$/)) {
+                    // The phone number is valid
+                    phoneNumberInput.setCustomValidity('');
+                    phoneNumberInput.style.border = "2px solid green";
+                } else {
+                    // The phone number is invalid
+                    phoneNumberInput.setCustomValidity('Please enter a valid 10-digit phone number.');
+                    phoneNumberInput.style.border = "2px solid red";
+                }
+            });
+
         function onChange() {
             const password = document.querySelector('input[name=password]');
             const confirm = document.querySelector('input[name=confirm]');
@@ -98,7 +104,6 @@
                 confirm.style.border = "2px solid red";
             }
         }
-
 
     </script>
 </body>
